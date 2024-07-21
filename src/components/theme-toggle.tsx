@@ -7,21 +7,8 @@ import { useTheme } from "next-themes";
 import { Button } from "@/components/ui/button";
 
 export function ToggleTheme() {
-  const { setTheme } = useTheme();
-
-  const getTheme = () => {
-    if (typeof window !== "undefined") {
-      const themeLocalStorage = window.localStorage.getItem("theme");
-
-      if (themeLocalStorage === "light") {
-        return "light";
-      }
-      return "dark";
-    }
-    return "dark";
-  };
-
-  const isDark = getTheme() === "dark";
+  const { resolvedTheme, setTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   return (
     <div>
