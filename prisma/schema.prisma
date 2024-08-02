@@ -16,6 +16,7 @@ datasource db {
 
 model QuestionAndAnswer {
   id       String @id @default(cuid())
+  number   Int    @default(autoincrement())
   question String
   answer   String
 }
