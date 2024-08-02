@@ -15,11 +15,14 @@ datasource db {
 }
 
 model QuestionAndAnswer {
-  id       String @id @default(cuid())
-  number   Int    @default(autoincrement())
-  question String
-  answer   String
-  status   STATUS @default(NOT_ANSWERED)
+  id         String   @id @default(cuid())
+  number     Int      @default(autoincrement())
+  question   String
+  answer     String
+  status     STATUS   @default(NOT_ANSWERED)
+  answeredAt DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now())
 }
 
 enum STATUS {
