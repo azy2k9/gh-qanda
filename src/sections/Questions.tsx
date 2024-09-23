@@ -14,14 +14,20 @@ interface QAndA {
   answer: string;
 }
 
+const toSentenceCase = (sentence: string) => {
+  return sentence[0].toUpperCase() + sentence.substring(1, sentence.length);
+};
+
 const QuestionCard = ({ question, answer }: QAndA) => {
   return (
     <Card className="w-full">
       <CardHeader>
-        <CardDescription className="text-center">{question}</CardDescription>
+        <CardDescription className="text-center">
+          {toSentenceCase(question)}
+        </CardDescription>
       </CardHeader>
       <CardContent>
-        <CardContent>{answer}</CardContent>
+        <CardContent>{toSentenceCase(answer)}</CardContent>
       </CardContent>
     </Card>
   );
